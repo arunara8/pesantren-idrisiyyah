@@ -1,26 +1,128 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #0f172a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-plus-jakarta);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-plus-jakarta), sans-serif;
 }
+
+.font-title {
+  font-family: var(--font-lora), serif;
+}
+
+.section-wrap {
+  padding: 4.5rem 0;
+}
+
+.section-eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgb(5 150 105);
+  font-weight: 700;
+}
+
+.section-title {
+  margin-top: 0.5rem;
+  color: rgb(6 78 59);
+  font-size: clamp(1.6rem, 2vw, 2.2rem);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  margin-top: 0.75rem;
+  color: rgb(82 82 91);
+  line-height: 1.65;
+}
+
+.card {
+  border: 1px solid rgb(209 250 229);
+  border-radius: 0.75rem;
+  background: white;
+  padding: 1.25rem;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+}
+
+.glass-card {
+  border-radius: 0.75rem;
+  border: 1px solid rgba(236, 253, 245, 0.4);
+  background: rgba(236, 253, 245, 0.08);
+  padding: 0.75rem 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: rgb(5 150 105);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: rgb(4 120 87);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(167 243 208);
+  background: white;
+  color: rgb(6 78 59);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: rgb(236 253 245);
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.75s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .section-wrap {
+    padding: 3.5rem 0;
+  }
+}
+
